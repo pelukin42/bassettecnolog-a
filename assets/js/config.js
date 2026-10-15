@@ -48,6 +48,17 @@ window.BASSETT_CONFIG = {
   mensajeWhatsApp: 'Hola Bassett Tecnología, quisiera información sobre sus servicios.',
   moneda: '₡',
 
+  /* ---------- Imágenes (opcional) ----------
+     Rutas a fotos o ilustraciones (p. ej. assets/img/hero-fibra.webp).
+     Vacío = se usan los visuales generados en código (fibra óptica animada y rack en SVG).
+     Cada servicio también acepta  imagen: 'assets/img/…'  para mostrar una foto en su tarjeta.
+     Use la habilidad /imagenes para crearlas y optimizarlas. */
+  imagenes: {
+    heroFondo: '',        // fondo de la portada (se oscurece y queda bajo la animación)
+    cableadoAntes: '',    // comparador: rack desordenado
+    cableadoDespues: ''   // comparador: rack estructurado (usar las dos o ninguna)
+  },
+
   /* ---------- Cotizador ---------- */
   tiposTrabajo: ['Venta', 'Instalación', 'Reparación', 'Mantenimiento'],
 
@@ -133,6 +144,78 @@ window.BASSETT_CONFIG = {
     { valor: 8, etiqueta: 'servicios especializados' },
     { texto: 'ISO 9001', etiqueta: 'empresa certificada' },
     { texto: 'Sitio + Remoto', etiqueta: 'soporte técnico' }
+  ],
+
+  /* ---------- Diagnóstico rápido ----------
+     Cada problema recomienda un servicio (servicio = id de la lista de arriba)
+     y muestra consejos seguros que el cliente puede intentar mientras tanto. */
+  diagnostico: [
+    {
+      id: 'pc', icono: 'monitor', servicio: 'pc',
+      titulo: 'Mi computadora está lenta o no enciende',
+      detalle: 'Tarda mucho, se congela o no arranca.',
+      tips: [
+        'Reinicie el equipo por completo (apagar y encender, no solo suspender).',
+        'Revise que tenga espacio libre en el disco: con menos del 10 % libre todo se vuelve lento.',
+        'Si no enciende, verifique el cable de poder y la regleta, y pruebe en otro tomacorriente.',
+        'Si huele a quemado o el disco hace ruidos extraños, apáguelo y no lo siga usando para no perder información.'
+      ]
+    },
+    {
+      id: 'internet', icono: 'wifi', servicio: 'redes',
+      titulo: 'No tengo internet o el Wi-Fi va lento',
+      detalle: 'Se cae, no llega a todas partes o va a ratos.',
+      tips: [
+        'Reinicie el router o módem: desconéctelo 30 segundos y vuelva a conectarlo.',
+        'Pruebe con otro dispositivo para saber si falla solo uno o toda la red.',
+        'Acérquese al router o conéctese por cable para descartar un problema de cobertura.',
+        'Revise que los cables de red estén bien firmes en ambos extremos.'
+      ]
+    },
+    {
+      id: 'impresion', icono: 'printer', servicio: 'impresoras',
+      titulo: 'Mi impresora o fotocopiadora falla',
+      detalle: 'No imprime, atasca papel o sale con manchas.',
+      tips: [
+        'Apague el equipo, espere un minuto y vuelva a encenderlo.',
+        'Revise atascos de papel, el tóner o los cartuchos y la cola de impresión de la computadora.',
+        'Verifique que esté conectada a la misma red (o cable) que su computadora.',
+        'Evite forzar piezas o sacar papel atascado a la fuerza: puede dañar el equipo.'
+      ]
+    },
+    {
+      id: 'seguridad', icono: 'shield', servicio: 'ciberseguridad',
+      titulo: 'Sospecho de virus o accesos raros',
+      detalle: 'Ventanas emergentes, correos extraños o archivos bloqueados.',
+      tips: [
+        'Desconecte el equipo de internet (cable y Wi-Fi) para frenar el problema.',
+        'No ingrese contraseñas ni datos bancarios en ese equipo.',
+        'Desde otro equipo seguro, cambie las contraseñas importantes (correo, bancos, redes).',
+        'No pague rescates ni llame a números que aparezcan en ventanas emergentes.'
+      ]
+    },
+    {
+      id: 'camaras', icono: 'video', servicio: 'camaras',
+      titulo: 'Quiero cámaras de seguridad',
+      detalle: 'Instalar, ampliar o ver mi negocio desde el celular.',
+      tips: [
+        'Haga una lista de las zonas a cubrir: entradas, bodega, caja, estacionamiento.',
+        'Revise si hay electricidad y un punto de red cerca de cada zona.',
+        'Piense cuántos días de grabación necesita conservar.',
+        'Tome fotos de cada zona: nos ayudan a prepararle una cotización más precisa.'
+      ]
+    },
+    {
+      id: 'cableado', icono: 'network', servicio: 'cableado',
+      titulo: 'Necesito puntos de red o ordenar mi cableado',
+      detalle: 'Cables enredados, oficina nueva o más equipos.',
+      tips: [
+        'Haga un croquis sencillo de dónde necesita puntos de red.',
+        'Anote cuántos equipos fijos tendrá (computadoras, impresoras, cámaras).',
+        'Si los cables están enredados, no desconecte nada sin rotular antes.',
+        'Tome una foto del estado actual: nos ayuda a estimar el trabajo.'
+      ]
+    }
   ],
 
   /* ---------- Preguntas frecuentes ---------- */
