@@ -334,8 +334,15 @@
   }
 
   /* ---------- Envío ---------- */
+  // Un enlace real (en vez de window.open) evita bloqueos de ventanas emergentes.
+  function openExternal(url) {
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+
   function openWhatsApp(msg) {
-    window.open(waUrl(msg), '_blank', 'noopener');
+    openExternal(waUrl(msg));
     toast('Abriendo WhatsApp…');
   }
 
